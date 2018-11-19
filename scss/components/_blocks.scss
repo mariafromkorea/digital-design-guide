@@ -1,0 +1,101 @@
+.palette {
+	section {
+		display:flex;
+		flex-flow: row wrap;
+	}
+	.color {
+		text-align:center;
+		flex: 0 0 100px;
+		padding-bottom:10px;
+
+		label {
+			text-transform:none;
+			letter-spacing:normal;
+		}
+
+		span {
+			display:block;
+			margin:10px auto 5px auto;
+			width:50px;
+			height:50px;
+			border-radius:100px;
+
+			&.white {
+				background:c(white);
+				border:solid 1px c(gray-p);
+			}
+
+			&.white-s {
+				background: c(white-s);
+			}
+
+			&.black {
+				background: c(black);
+			}
+
+			&.black-s {
+				background: c(black-s);
+			}
+			&.navy {
+				background: c(navy);
+			}
+			&.navy-l {
+				background: c(navy-l);
+			}
+			&.slate {
+				background: c(slate);
+			}
+			&.blue {
+				background: c(blue);
+			}
+			&.blue-l {
+				background: c(blue-l);
+			}
+			&.blue-p {
+				background: c(blue-p);
+			}
+			&.gray-d {
+				background: c(gray-d);
+			}
+			&.gray-m {
+				background: c(gray-m);
+			}
+			&.gray {
+				background: c(gray);
+			}
+			&.gray-l {
+				background: c(gray-l);
+			}
+			&.gray-p {
+				background: c(gray-p);
+			}
+			&.gray-s {
+				background: c(gray-s);
+			}
+			&.green {
+				background: c(green);
+			}
+			&.green-l {
+				background: c(green-l);
+			}
+			&.green-p {
+				background: c(green-p);
+			}
+			&.alert {
+				background: c(alert);
+			}
+			&.none {
+				background: c(none);
+				border:solid 1px c(gray-p);
+			}
+		}
+	}
+}
+
+.block-dropdown {
+	@include block-dropdown();
+}
+
+.delete-alert {
+	@include delete-alert();
+}

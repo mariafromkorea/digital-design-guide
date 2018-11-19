@@ -1,0 +1,149 @@
+#nav-trigger {
+	width:$header-height;
+	height:$header-height;
+	position:relative;
+	padding-top:36px;
+	text-align:center;
+	margin-left:2px;
+
+	.menu-icon {
+
+		@include ab-pos($top:-19px);
+
+		&,
+		&:before,
+		&:after {
+			width:34px;
+			height:4px;
+			border-radius:10px;
+			background:c(blue);
+			display:block;
+			transition:transform .15s ease-in-out;
+		}
+
+		&:before,
+		&:after {
+			content:'';
+			position:absolute;
+		}
+
+		&:before {
+			top:-8px;
+		}
+		&:after {
+			bottom:-8px;
+		}
+	}
+
+	&,
+	.alt-label {
+		text-transform:uppercase;
+		font-size:12px;
+		letter-spacing:.05em;
+		color:c(blue);
+	}
+
+	.show-nav & {
+
+		.menu-icon {
+			transform:rotate(45deg);
+
+			&:after {
+				transform: rotate(90deg) translatex(-8px)
+			}
+			&:before {
+				transform: rotate(90deg) translatex(8px)
+			}
+		}
+	}
+}
+nav {
+	ul {
+		list-style:none;
+		margin:auto;
+		padding:25px 0;
+
+		//Top Level (only leve, no secondary nav at this point)
+		> li {
+			margin:15px 0px;
+			> a {
+
+			}
+			a {
+				display:block;
+				padding:5px 5px 5px 15px;
+				border-left:solid 6px c(none);
+				@include navlinks();
+
+				i {
+					display:inline-block;
+					width:24px;
+					height:24px;
+					margin-bottom:-5px;
+					margin-right:10px;
+				}
+
+				&.dashboard {
+					@include navicon(dashboard);
+					i {
+						background-size: 20px auto;
+					}
+				}
+
+				&.monitored-services {
+					@include navicon(monitored-services);
+					i {
+						width:34px;
+						height:30px;
+						margin-left:-8px;
+						margin-right:5px;
+					}
+				}
+
+				&.service-groups {
+					@include navicon(service-groups);
+				}
+
+				&.classifications {
+					@include navicon(classifications);
+				}
+
+				&.policies {
+					@include navicon(policies);
+				}
+
+				&.policy-library {
+					@include navicon(policy-library);
+				}
+
+				&.compare {
+					@include navicon(compare);	
+				}
+
+				&.access-explorer {
+					@include navicon(access-explorer);
+				}
+
+				&.reports {
+					@include navicon(reports);
+				}
+
+				&.user-management {
+					@include navicon(user-management);
+				}
+
+				&.service-settings {
+					@include navicon(service-settings);
+				}
+
+				&.logout {
+					@include navicon(logout);
+
+					i {
+						margin-bottom:-2px;
+					}
+				}
+			}
+		}
+	}
+}

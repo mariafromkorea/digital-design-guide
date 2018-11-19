@@ -1,0 +1,43 @@
+// Color
+@function c($key) { // 'c' for color
+  @if not map-has-key($palette, $key) {
+    @warn "#{$key} was not found in map palette";
+  }
+
+  @return map-get($palette, $key);
+}
+
+// Z-index
+@function zi($key) {
+  @if not map-has-key($zstack, $key) {
+    @warn "#{$key} was not found in the z-index stack";
+  }
+
+  @return map-get($zstack, $key);
+}
+
+// Nav Icons
+@function navicon($key) {
+  @if not map-has-key($nav-icons, $key) {
+    @warn "#{$key} was not found in the nav-icons";
+  }
+
+  @return map-get($nav-icons, $key);
+}
+
+// H1 tag
+@function htag($key) {
+  @if not map-has-key($htag, $key) {
+    @warn "#{$key} was not found in htag";
+  }
+
+  @return map-get($htag, $key);
+}
+
+@function fc($key) {
+  @if not map-has-key($form-components, $key) {
+    @warn "#{$key} was not found in form-components";
+  }
+
+  @return map-get($form-components, $key);
+}

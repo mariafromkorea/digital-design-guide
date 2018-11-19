@@ -1,0 +1,563 @@
+// GRID
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin grid-row($narrow:false) {
+  max-width: em($row-width);
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+
+  @if $narrow == true {
+    max-width: em($row-width-narrow);
+  }
+}
+
+@mixin grid($col) {
+  $width: percentage($col/$colnum);
+  width: $width;
+  float: left;
+  position: relative;
+}
+
+// Media Query
+@mixin mq($realm:null, $value1:null, $value2:null) {
+
+  @if $realm == $tny-down
+    or $realm == $sm-down
+    or $realm == $md-down
+    or $realm == $lg-down
+    or $realm == $xl-down {
+
+    @media only screen and (max-width: em($realm)) {
+      @content;
+    }
+  }
+
+  @if $realm == $tny
+    or $realm == $sm
+    or $realm == $md
+    or $realm == $lg
+    or $realm == $xl {
+
+    @media only screen and (min-width: em($realm)) {
+      @content;
+    }
+  }
+
+  @if $realm == range {
+    @media only screen and (min-width: em($value1)) and (max-width: em($value2)) {
+      @content;
+    }
+  }
+
+  @if $realm == min {
+    @media only screen and (min-width: em($value1)) {
+      @content;
+    }
+  }
+
+  @if $realm == max {
+    @media only screen and (max-width: em($value1)) {
+      @content;
+    }
+  }
+}
+//================================== End Grid
+
+@mixin navicon($icon, $active:false) {
+  $navicon: navicon(#{$icon});
+  $iconpath: url("../images/#{$navicon}.svg");
+  $iconpathactive: url("../images/#{$navicon}-blue.svg");
+  
+  i {
+    background-image:$iconpath;
+    background-repeat:no-repeat;
+    background-position:left center;
+  }
+
+  &.active i{
+    background-image:$iconpathactive;
+  }
+}
+
+@mixin navlinks {
+  color:c(gray-d);
+  transition:all .15s ease-in-out;
+
+  &:hover,
+  &:active {
+    cursor:pointer;
+  }
+  &.active,
+  &:hover,
+  &:active {
+    border-color:c(blue);
+  }
+
+  &.active {
+    color:c(blue);
+  }
+}
+
+
+@mixin htag($tag:h1) {
+  font-family:$font;
+  color: c(navy);
+  font-size: htag(#{$tag}-font-size-tny);
+  font-weight: htag(#{$tag}-font-weight);
+  text-transform: htag(#{$tag}-text-transform);
+  line-height: htag(#{$tag}-line-height);
+  letter-spacing: htag(#{$tag}-letter-spacing);
+  margin-top: htag(#{$tag}-margin-top);
+  margin-bottom: htag(#{$tag}-margin-bottom);
+
+  @include mq($tny) {
+    font-size: htag(#{$tag}-font-size-sm);
+  }
+
+  @include mq($sm) {
+    font-size: htag(#{$tag}-font-size-md);
+  }
+
+  @include mq($md) {
+    font-size: htag(#{$tag}-font-size-lg);
+  }
+  @include mq($lg) {
+    font-size: htag(#{$tag}-font-size-xl);
+  }
+}
+
+// Mixin for placeholder styles
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+//Box Shadow
+@mixin box-shadow($darker:false) {
+  box-shadow: $global-box-shadow;
+
+  @if $darker == true {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, .3);
+  }
+}
+
+
+
+// Absolute Position
+@mixin ab-pos($top:0, $right:0, $left:0, $bottom:0) {
+  position: absolute;
+  margin: auto;
+  top: $top;
+  right: $right;
+  left: $left;
+  bottom: $bottom;
+}
+
+//Clearfix
+@mixin clearfix() {
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    background: none;
+  }
+}
+
+//Button
+@mixin button($color:$theme-color, $type:button, $style:bold) {
+  -webkit-appearance: none;
+  display: inline-block;
+  width: auto;
+  min-height: $form-component-height;
+  background: $color;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 8px 12px 6px;
+  line-height: 1.1;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0px 1px 3px rgba($black, .15);
+  text-decoration: none;
+  border-radius:0;
+  text-align:center;
+
+  @if $color == $theme-color {
+    color: $white;
+
+    &:hover,
+    &:active {
+      background: $black;
+    }
+  }
+
+  @if $color == $black {
+    &:hover,
+    &:active {
+      background: $theme-color;
+    }
+  }
+  @if $type == link {
+    padding-top:10px;
+  }
+  @if $style == normal {
+    font-weight:400;
+    text-transform:none;
+    letter-spacing:.025em;
+    padding-top:7px;
+
+    @if $type == link {
+      padding-top:11px;
+    }
+  }
+}
+
+// remove padding
+@mixin min($side:lr) {
+  @if $side == l {
+    padding-left:0;
+  }
+  @if $side == r {
+    padding-right:0;
+  }
+  @if $side == t {
+    padding-top:0;
+  }
+  @if $side == b {
+    padding-bottom:0;
+  }
+  @if $side == tb {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  @if $side == lr {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @if $side == all {
+    padding: 0;
+  }
+}
+
+@mixin button($color: c(blue), $size: default, $style:default, $display:inline-block, $outline:false, $type:link, $icon:none) {
+  // Style | default, pill
+  // Size | default, small, large
+  // Border-style: true, false
+  -webkit-appearance:none;
+  display:$display;
+  text-align: center;
+  font-family: $font;
+  background: $color;
+  color: c(white);
+  box-shadow:$global-box-shadow;
+  border:none;
+  font-size: 16px;
+  border-radius: $global-radius;
+  min-height: fc(height);
+  line-height: fc(line-height);
+  letter-spacing:.015em;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: .15s;
+  padding: 0 15px;
+
+  &:hover,
+  &:active {
+    cursor:pointer;
+    background-color:c(navy);
+  }
+
+  @if $style == pill {
+    border-radius:300px;
+  }
+
+  @if $outline == true {
+    background:c(white);
+    border:solid 1px $color;
+    color:$color;
+
+    &:hover,
+    &:active {
+      background:$color;
+      color:c(white);
+    }
+  }
+
+  @if $size == small {
+    padding: 0 8px;
+    min-height:30px;
+    font-size:13px;
+  }
+
+  @if $size == large {
+    padding: 0 20px;
+    min-height:44px;
+    font-size:18px;
+  }
+
+  @if $type == link {
+    text-decoration:none;
+    padding-top:7px;
+    padding-bottom:7px;
+
+    @if $size == small {
+      padding-top:5px;
+      padding-bottom:5px;
+    }
+
+    @if $size == large {
+      padding-top: 9px;
+      padding-bottom:9px;
+    }
+  }
+
+  @if $icon == add {
+    &:before {
+      content:'';
+      display:inline-block;
+      width:15px;
+      height:15px;
+      background:url("../images/icon-plus-white.svg") left center no-repeat;
+      margin-right:10px;
+      margin-bottom:-2px;
+    }
+  }
+}
+
+@mixin label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  display:block;
+}
+
+@mixin box-shadow($depth:1) {
+  box-shadow:$global-box-shadow;
+
+  @if $depth == 2 {
+    box-shadow: 0px 2px 4px rgba(c(black), .2);
+  }
+  @if $depth == 3 {
+    box-shadow: 0px 3px 6px rgba(c(black), .25);
+  }
+}
+
+@mixin tab($state:default) {
+  //$state | default, active
+  font-size:16px;
+  min-height: fc(height);
+  color:c(black-s);
+  font-style:italic;
+  padding:7px 20px;
+  text-decoration:none;
+  background-color:c(gray-p);
+  border-radius:$global-radius;
+  letter-spacing:normal;
+  position:relative;
+  transition-property:color, background-color, border-color, box-shadow;
+  transition-timing-function: ease-in-out;
+  transition-duration: .15s;
+  box-shadow: 0px 1px 3px c(none);
+  display:inline-block;
+  margin-bottom:15px;
+
+  + .tab {
+    margin-left:5px;
+  }
+
+  &:hover,
+  &:active {
+    color:c(blue);
+    cursor:pointer;
+  }
+
+  &:after {
+    content:'';
+    display:block;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:10px;
+    border-color: c(none);
+    @include ab-pos($top:auto, $bottom:-20px);
+  }
+
+  @if $state == active {
+    font-style:normal;
+    color: c(white);
+    letter-spacing:.03em;
+    background-color: c(blue);
+    box-shadow:0px 1px 3px rgba(c(black), .2);
+
+    &:hover,
+    &:active {
+      cursor:default;
+      color:c(white);
+    }
+    &:after {
+      border-top-color:c(blue);
+    }
+  }
+}
+
+@mixin button-icon($type:default) {
+  width: fc(height);
+  height: fc(height);
+  display:inline-block;
+  background-color: c(none);
+  border-radius: 200px;
+  cursor:pointer;
+  transition: all .25s ease-in-out;
+
+  &:before {
+    content:'';
+    width: fc(height);
+    height: fc(height);
+    display:inline-block;
+    border-radius: 200px;
+    opacity:1.0;
+    transition: opacity .25s ease-in-out;
+  }
+
+  &:hover,
+  &:active {
+    &:before {
+      opacity:0;
+    }
+  }
+
+  @if $type == edit {
+    background-image: url("../images/icon-edit-white.svg");
+    background-repeat:no-repeat;
+    background-position:12px center;
+    background-size: auto 24px;
+
+    &:before {
+      background-image: url("../images/icon-edit-blue.svg");
+      background-repeat:no-repeat;
+      background-position:12px center;
+      background-size: auto 24px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: c(blue);
+    }
+  }
+
+  @if $type == assess {
+    background-image: url("../images/icon-assess-white.svg");
+    background-repeat:no-repeat;
+    background-position: center 6px;
+    background-size: auto 24px;
+
+    &:before {
+      background-image: url("../images/icon-assess-blue.svg");
+      background-repeat:no-repeat;
+      background-position: center 6px;
+      background-size: auto 24px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: c(blue);
+    }
+  }
+
+  @if $type == delete {
+    background-image: url("../images/icon-trash-white.svg");
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: auto 24px;
+
+    &:before {
+      background-image: url("../images/icon-trash-gray.svg");
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size: auto 24px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: c(alert);
+    }
+  }
+}
+
+@mixin block-dropdown($width:250px) {
+  background:c(white);
+  @include box-shadow(2);
+  width:$width;
+  padding:15px;
+  font-size:14px;
+  position:relative;
+  border-radius:$global-radius;
+
+  &:before {
+    content:'';
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:8px;
+    border-color: c(none);
+    border-bottom-color: c(white);
+    @include ab-pos($top:-16px, $bottom:auto);
+
+  }
+}
+
+@mixin delete-alert($width:120px) {
+  background:c(alert);
+  @include box-shadow(2);
+  width:$width;
+  padding:15px;
+  font-size:14px;
+  position:relative;
+  border-radius:$global-radius;
+  text-align:center;
+
+  &, * {
+    color: c(white);
+  }
+
+  a {
+    text-decoration:underline;
+    font-weight:600;
+
+    &:hover,
+    &:active {
+      text-decoration:none;
+      cursor:pointer;
+    }
+  }
+
+  &:before {
+    content:'';
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:8px;
+    border-color: c(none);
+    border-bottom-color: c(alert);
+    @include ab-pos($top:-16px, $bottom:auto);
+
+  }
+}

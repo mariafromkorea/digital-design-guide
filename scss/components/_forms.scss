@@ -1,0 +1,348 @@
+hr {
+	width: 100%;
+	border: none;
+	height: 1px;
+	background: c(gray-p);
+	margin-top:20px;
+	margin-bottom:20px;
+	clear:both;
+
+	&.dark {
+		background: c(navy);
+		height:2px;
+	}
+}
+
+.has-inline-label {
+	display: flex;
+	flex-flow:row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+	.inline-label {
+		flex: 0 1 auto;
+		margin-right:10px;
+	}
+	> div {
+		flex: 1 1 auto;
+	}
+}
+
+button {
+  @include button($type:button);
+
+  &.button-outline {
+  	@include button($outline:true);
+  }
+
+  &.pill {
+		border-radius:300px !important;
+	}
+
+  &.button-small {
+		@include button($size:small, $type:button);
+
+		&.button-outline {
+			@include button($size:small, $outline:true);
+		}
+	}
+
+	&.button-large {
+		@include button($size:large, $type:button);
+
+		&.button-outline {
+			@include button($size:large, $outline:true);
+		}
+	}
+
+	&.button-outline {
+		@include button($outline:true);
+	}
+
+	&.button-edit {
+		@include button($type:button);
+		text-transform: uppercase;
+		font-weight:600;
+
+		&:before {
+			content:'';
+			display:inline-block;
+			width:15px;
+			height:20px;
+			margin-right:7px;
+			margin-left:-2px;
+			background:url("../images/icon-edit-white.svg") left center no-repeat;
+			margin-bottom:-3px;
+		}
+	}
+
+	&.button-filters {
+		@include button($type:button);
+		text-transform: uppercase;
+		font-weight:600;
+
+		&:before {
+			content:'';
+			display:inline-block;
+			width:15px;
+			height:20px;
+			margin-right:7px;
+			margin-left:-2px;
+			background:url("../images/icon-filters-white.svg") left center no-repeat;
+			margin-bottom:-3px;
+		}
+	}
+	&.button-delete {
+		@include button(c(gray), $type:button);
+	}
+}
+
+a.button {
+	@include button($type:link);
+
+	 &.button-outline {
+  	@include button($outline:true, $type:link);
+  }
+
+  &.pill {
+		border-radius:300px !important;
+	}
+
+	&.button-small {
+		@include button($size:small, $type:link);
+
+		&.button-outline {
+			@include button($size:small, $type:link, $outline:true);
+		}
+	}
+
+	&.button-large {
+		@include button($size:large, $type:link);
+
+		&.button-outline {
+			@include button($size:large, $type:link, $outline:true);
+		}
+	}
+
+	&.button-edit {
+		@include button();
+		text-transform: uppercase;
+		font-weight:600;
+
+		&:before {
+			content:'';
+			display:inline-block;
+			width:15px;
+			height:20px;
+			margin-right:7px;
+			margin-left:-2px;
+			background:url("../images/icon-edit-white.svg") left center no-repeat;
+			margin-bottom:-1px;
+		}
+	}
+
+	&.button-filters {
+		@include button();
+		text-transform: uppercase;
+		font-weight:600;
+
+		&:before {
+			content:'';
+			display:inline-block;
+			width:15px;
+			height:20px;
+			margin-right:7px;
+			margin-left:-2px;
+			background:url("../images/icon-filters-white.svg") left center no-repeat;
+			margin-bottom:-1px;
+		}
+	}
+	&.button-delete {
+		@include button(c(gray));
+	}
+}
+
+.button.samples {
+	li.b {
+		button {
+			@include button($color:c(alert), $style:pill, $type:button);
+		}
+	}
+	li.c {
+		a {
+			@include button($style:pill, $type:link, $icon:add);
+		}
+	}
+}
+
+.tab {
+	@include tab();
+}
+
+.tab-active {
+	@include tab(active);
+}
+
+.mode-toggle {
+	padding-left:90px;
+	padding-right:90px;
+	position:relative;
+	display:block;
+	width:245px;
+	
+	span {
+		width:80px;
+		position:absolute;
+		top:4px;
+
+		&.blacklist-label {
+			text-align:right;
+			left:0;
+			font-style:italic;
+			font-weight:400;
+			color: c(navy);
+		}
+
+		&.whitelist-label {
+			text-align:left;
+			right:0;
+			font-style:normal;
+			font-weight:900;
+			color: c(blue);
+		}
+	}
+	.toggle {
+		height:30px;
+		width:65px;
+		background-color:c(blue);
+		border-radius:200px;
+		@include box-shadow();
+		position:relative;
+		display:block;
+		transition: all .2s ease-in-out;
+
+		i {
+			width:24px;
+			height:24px;
+			background: c(white);
+			@include box-shadow();
+			border-radius:200px;
+			display:block;
+			@include ab-pos($left:38px, $right: 3px);
+			transition-property: left, right;
+			transition-timing-function: ease-in-out;
+			transition-duration: .2s;
+		}
+	}
+
+	.blacklist {
+		span.blacklist-label {
+			font-weight:900;
+			font-style:normal;
+		}
+
+		span.whitelist-label {
+			font-weight:400;
+			font-style: italic;
+		}
+		.toggle {
+			background-color: c(navy);
+
+			i {
+				left: 3px;
+				right:38px;
+			}
+		}
+	}
+}
+
+.state-toggle {
+	padding-left:85px;
+	padding-right:65px;
+	position:relative;
+	display:block;
+	width:195px;
+	
+	span {
+		width:80px;
+		position:absolute;
+		top:-1px;
+		font-size:15px;
+
+		&.disabled-label {
+			text-align:right;
+			left:0;
+			font-style:italic;
+			font-weight:300;
+			color: c(gray-d);
+			width:75px;
+		}
+
+		&.active-label {
+			text-align:left;
+			right:0;
+			font-style:normal;
+			font-weight:600;
+			color: c(blue);
+			width:55px;
+		}
+	}
+	.toggle {
+		height:20px;
+		width:45px;
+		background-color:c(blue);
+		border-radius:200px;
+		position:relative;
+		display:block;
+		transition: all .2s ease-in-out;
+		margin-top:5px;
+
+		i {
+			width:16px;
+			height:16px;
+			background: c(blue-l);
+			@include box-shadow();
+			border-radius:200px;
+			display:block;
+			@include ab-pos($left:27px, $right: 2px);
+			transition-property: left, right, background-color;
+			transition-timing-function: ease-in-out;
+			transition-duration: .2s;
+		}
+	}
+
+	.disabled {
+		span.disabled-label {
+			font-weight:600;
+			font-style:normal;
+		}
+
+		span.active-label {
+			font-weight:300;
+			font-style: italic;
+		}
+		.toggle {
+			background-color: c(gray-l);
+
+			i {
+				left: 2px;
+				right:27px;
+				background-color: c(white);
+			}
+		}
+	}
+}
+
+.button-icon {
+	@include button-icon();
+
+	&.edit {
+		@include button-icon(edit);
+	}
+	&.delete {
+		@include button-icon(delete);
+	}
+	&.assess {
+		@include button-icon(assess);
+	}
+}

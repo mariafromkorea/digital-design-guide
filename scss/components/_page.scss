@@ -1,0 +1,47 @@
+#document {
+	width:100%;
+}
+
+#main {
+	display:flex;
+	flex-flow:row nowrap;
+	justify-content:stretch;
+	height:100%;
+
+	nav {
+		background:c(white);
+		flex: 0 0 0;
+		border-right: solid 1px c(gray-p);
+		transition:all .15s ease-in-out;
+		max-width:0px;
+		overflow:hidden;
+
+		ul {
+			display:none;
+			opacity:0;
+			transition: all .2s ease-in-out 10s;
+		}
+
+		.show-nav & {
+			flex-basis:30%;
+			max-width:30%;
+
+			ul {
+				display:block;
+				animation: nav-fadein .25s ease-in-out .35s forwards;
+			}
+		}
+	}
+
+	main {
+		flex: 1 1 auto;
+		padding:30px;
+	}
+}
+
+.callout-block {
+	background:c(white);
+	position:relative;
+	@include box-shadow();
+	padding:15px;
+}
