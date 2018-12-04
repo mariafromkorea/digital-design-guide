@@ -6,3 +6,18 @@
 		opacity:1.0;
 	}
 }
+
+@keyframes pulse-border {
+	0% {
+		border-color:c(gray-p);
+	}
+	33.33% {
+		border-color:c(blue);
+	}
+	66.66% {
+		border-color:c(gray-p);
+	}
+	100%{
+		border-color:c(blue);
+	}
+}

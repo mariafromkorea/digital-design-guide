@@ -157,8 +157,6 @@
   }
 }
 
-
-
 // Absolute Position
 @mixin ab-pos($top:0, $right:0, $left:0, $bottom:0) {
   position: absolute;
@@ -257,6 +255,108 @@
   }
 }
 
+@mixin label($style:default) {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  display:block;
+  color:c(gray-m);
+
+  @if $style == alt {
+    font-size:11px;
+    font-weight:300;
+  }
+}
+
+@mixin fc($type:input, $style:default) {
+  -webkit-appearance:none;
+  display:block;
+  height:fc(height);
+  border-radius:fc(radius);
+  font-weight:fc(font-weight);
+  line-height:fc(line-height);
+  font-family:$font;
+  font-size:fc(font-size);
+  box-shadow:none;
+  border:solid 1px c(gray-l);
+  padding-left:5px;
+  transition-property: border-color, color, outline;
+  transition-duration: .2s;
+  width:100%;
+  transition-timing-funciton:ease-in-out;
+  color:c(gray);
+
+  @include placeholder {
+    font-size:14px;
+    font-style:italic;
+    font-family:$font;
+    color:c(gray);
+    transition:color .2s ease-in-out;
+  }
+
+  &:focus,
+  &:active {
+    outline:none;
+    border-color:c(blue);
+    color:c(blue);
+
+    @include placeholder{
+      color:c(blue);
+    }
+  }
+
+  @if $type == select {
+    padding-right:15px;
+    background-color:c(white);
+    background-image:url("../images/select-bg-blue.svg");
+    background-position:right center;
+    background-size:auto 9px;
+    background-repeat:no-repeat;
+    font-style:italic;
+
+    &:focus,
+    &:active {
+      font-style:normal;
+      color:c(blue);
+
+      @include placeholder{
+        color:c(blue);
+      }
+    }
+  }
+
+  @if $style == alt {
+    border-radius:0;
+    border-color:c(none);
+    border-bottom-color:c(gray);
+    background-color:c(none);
+    padding-left:1px;
+    color:c(gray-m);
+    padding-top:8px;
+    font-size:fc(font-size-larger);
+
+    @include placeholder {
+      font-size:fc(font-size-larger);
+    }
+
+    &:active,
+    &:focus {
+      border-color:c(none);
+      border-bottom-color:c(blue);
+    }
+
+    @if $type == select {
+      background-position: right 19px;
+      background-image:url("../images/select-bg-gray.svg");
+
+      &:active,
+      &:focus {
+        background-image:url("../images/select-bg-blue.svg");
+      }
+    }
+  }
+}
+
 @mixin button($color: c(blue), $size: default, $style:default, $display:inline-block, $outline:false, $type:link, $icon:none) {
   // Style | default, pill
   // Size | default, small, large
@@ -340,13 +440,6 @@
       margin-bottom:-2px;
     }
   }
-}
-
-@mixin label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-  display:block;
 }
 
 @mixin box-shadow($depth:1) {

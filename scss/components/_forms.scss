@@ -1,3 +1,29 @@
+input[type="text"],
+input[type="email"],
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="number"]{
+	@include fc();
+
+	.fc-item.fc-alt &,
+	&.alt {
+		@include fc($style:alt);
+		padding-top:7px;
+	}
+}
+
+select {
+	@include fc(select);
+
+	.fc-item.fc-alt &,
+	&.alt {
+		@include fc(select, $style:alt);
+		padding-top:7px;
+	}
+}
+
 hr {
 	width: 100%;
 	border: none;
@@ -13,20 +39,74 @@ hr {
 	}
 }
 
-.has-inline-label {
-	display: flex;
-	flex-flow:row nowrap;
-	justify-content: flex-start;
-	align-items: center;
-
-	.inline-label {
-		flex: 0 1 auto;
-		margin-right:10px;
+form {
+	.fc-item:last-of-type {
+		margin-bottom:0px;
 	}
-	> div {
-		flex: 1 1 auto;
+
+	@include clearfix();
+}
+
+.fc-item {
+	position:relative;
+	display:block;
+	padding-bottom:20px;
+	margin-bottom:15px;
+
+	label,
+	.label {
+		position:absolute;
+		left:1px;
+		bottom:0px;
+	}
+
+	&.columns {
+		label,
+		.label {
+			left:15px;
+		}
+	}
+
+	&.has-inline-label {
+		display: flex;
+		flex-flow:row nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		padding-bottom:0px;
+
+		label,
+		.label,
+		.inline-label,
+		.label.inline-label {	
+			flex: 0 0 100px;
+			color: c(gray-m);
+			margin-right:7px;
+			text-align:right;
+			position:relative;
+		}
+
+		> div {
+			flex: 1 1 auto;
+		}
+	}
+
+	&.fc-alt {
+		position:relative;
+		display:block;
+		padding-bottom:17px;
+
+		label,
+		.label,
+		label.alt,
+		.label.alt {
+			position:absolute;
+			left:1px;
+			bottom:0;
+			@include label(alt);
+		}
 	}
 }
+
 
 button {
   @include button($type:button);
@@ -344,5 +424,29 @@ a.button {
 	}
 	&.assess {
 		@include button-icon(assess);
+	}
+}
+
+#form-1 {
+	padding-top:30px;
+	padding-bottom:20px;
+
+	.fc-item:nth-of-type(2n+1) {
+		padding-right:8px;
+	}
+	.fc-item:nth-of-type(2n) {
+		padding-left:8px;
+	}
+	.fc-item:nth-of-type(3) {
+		padding-right:8px;
+		margin-bottom:0px;
+	}
+}
+
+.classification-form-animations {
+	input {
+		&:active, &:focus {
+			animation:pulse-border 1s ease-in-out forwards;
+		}
 	}
 }
