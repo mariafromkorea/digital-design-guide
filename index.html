@@ -30,13 +30,13 @@
           </nav>
           <main>
             <h1>Digital Brand Guide</h1>
-            <div class="has-inline-label">
+            <div class="fc-item has-inline-label">
               <label class="inline-label">hr.dark</label>
               <div>
                 <hr class="dark"/>
               </div>
             </div>
-            <div class="has-inline-label">
+            <div class="fc-item has-inline-label">
               <label class="inline-label">hr</label>
               <div><hr/></div>
             </div>
@@ -306,8 +306,102 @@
             </section>
             </section>
             <section class="row">
+
               <div class="border-section-title"><span>Forms</span></div>
-              <div class="tooltip">This section coming soon.</div>
+              <!------------------------------------------>
+              <div class="row">
+                <p class="tooltip columns tiny-12">This is a standard form layout with standard field and label styling. Every form will probably need a little bit of custom tweaking in order to get the padding right, as you can see if you inspect this form and it's elements. 
+                </p>
+                <p class="tooltip columns tiny-12">Every form component has a wrapper ".fc-item" to which the element and component is aligned. Inspect the markup to see how these are each built.</p>
+
+                <p class="tooltip columns tiny-12"><b>Limitations of Use:</b> This is the default form styling. When is doubt, use this layout ;)</p>
+                <p class="tooltip columns tiny-12"><b>Where this sample falls short:</b> I wasn't sure how to accomplish this, so I'd love some FE Engineer help. You will see when you click on an input field and enter text, once the field is filled in, the text goes from italic to roman. This is easily accomplished with inputs by styling the placeholder text separately from the field text. I'm not sure how to do this with Select boxes, since they only have options. Is there some way to detect when a select option other than the default (empty) option is chosen, so that the same behavior can apply?</p>
+
+              <div class="columns tiny-12">
+                <form class="callout-block" id="form-1">
+                   <div class="fc-item columns tiny-6">
+                    <label>Input Label</label>
+                    <div><input type="text" placeholder="Begin Typing" /></div>
+                  </div>
+                  <div class="fc-item columns tiny-6">
+                    <label>Input Label</label>
+                    <div><input type="text" placeholder="Begin Typing" /></div>
+                  </div>
+
+                  <div class="fc-item columns tiny-6">
+                    <label>Select Label</label>
+                      <div><select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select></div>
+                  </div>
+                  <div class="fc-item columns tiny-6">
+                    <label>Select Label</label>
+                      <div><select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <br/>
+            <hr/>
+              <!------------------------------------------>
+              <div class="row">
+                <div class="columns tiny-6">
+                  <p class="tooltip">This is a form with inline labels. Add the class ".has-inline-label" to the .fc-item wrapper. 
+                  </p>
+                  <p class="tooltip"><b>Limitations of Use:</b> This layout should ONLY be used when the form is laid out in column, and is only a single form component per row. </p>
+                  <form class="callout-block">
+                    <div class="fc-item has-inline-label">
+                      <label class="inline-label">Input Label</label>
+                      <div><input type="text" placeholder="Begin Typing" /></div>
+                    </div>
+                
+                    <div class="fc-item has-inline-label">
+                      <label class="inline-label">Select Label</label>
+                      <div><select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                      </select></div>
+                    </div>
+                  </form>
+                </div>
+                <!------------------------------------------>
+                <div class=" columns tiny-6">
+                  <p class="tooltip">This is a form with alternate styles. Add the class ".fc-alt" to the .fc-item wrapper. 
+                  </p>
+                  <p class="tooltip"><b>Limitations of Use:</b> This layout should ONLY be used for contact forms, or very short forms (less than 6 fields), and the form may only be *AT MOST 2 columns wide / 2 form components per row. </p>
+                  <form class="callout-block">
+                    <div class="fc-item fc-alt">
+                      <label>Input Label</label>
+                      <div><input class="alt" type="text" placeholder="Begin Typing" /></div>
+                    </div>
+
+                    <div class="fc-item fc-alt">
+                      <label>Select Label</label>
+                      <div><select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                      </select></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <hr/>
+              <div class="row">
+                <div class="callout-block columns tiny-12">
+                  <form class="classification-form-animations">
+                    <h5 align="center">Classification Form</h3>
+                    <input type="text" placeholder="preview pulse animation" />
+                  </form>
+                </div>
+              </div>
             </section>
           </main>
         </div>
