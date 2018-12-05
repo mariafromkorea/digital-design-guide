@@ -99,3 +99,85 @@
 .delete-alert {
 	@include delete-alert();
 }
+
+.cfn-item {
+	width:100%;
+	display:block;
+	position:relative;
+	padding-left:60px;
+	padding-right:250px;
+	min-height:44px;
+	max-height:44px;
+	background:c(white);
+	@include box-shadow();
+	// transition-timing-function: ease-in-out;
+	// transition-duration: .2s;
+	// transition-property: border-color, max-height;
+	// transition:all .2s ease-in-out;
+	border:solid 1px c(none);
+
+	i{
+		background:#D54F9C url("../images/icon-move-white.svg") 10px 10px no-repeat;
+		background-size: auto 24px;
+		width:44px;
+		display:block;
+		@include ab-pos($top:-1px, $left:-1px, $bottom:-1px, $right:auto);
+		transition:border-color .2s ease-in-out;
+	}
+
+	.cfn-name {
+		color:c(navy);
+		font-weight:600;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+
+	.cfn-count {
+		@include ab-pos($left:auto);
+		width:50px;
+		text-align:center;
+		padding-top:10px;
+	}
+
+	.cfn-name-count {
+		max-height:44px;
+		// transition: max-height .1s ease-in-out;
+		display:inline-block;
+		width:auto;
+		max-width:350px;
+		padding-right: 50px;
+		position:relative;
+		min-height:44px;
+		padding-top:10px;
+	}
+
+	.action-items {
+		background:c(blue);
+		color:c(white);
+		@include ab-pos($left:auto);
+		opacity:0;
+		transition:opacity .2s ease-in-out;
+	}
+
+	&:hover,
+	&:active {
+		border:solid 1px c(blue);
+		max-height:200px;
+
+		.cfn-name-count {
+			max-height:200px;
+		}
+		.cfn-name {
+			white-space:normal;
+		}
+		.action-items{opacity:1;}
+
+		i {
+			border:solid 1px c(blue);
+			border-right:none;
+			background-position:9px 9px;
+		}
+	}
+
+}
