@@ -553,6 +553,7 @@
     &:hover,
     &:active {
       background-color: c(blue);
+      @include box-shadow(2);
     }
   }
 
@@ -572,6 +573,7 @@
     &:hover,
     &:active {
       background-color: c(blue);
+      @include box-shadow(2);
     }
   }
 
@@ -591,6 +593,7 @@
     &:hover,
     &:active {
       background-color: c(alert);
+      @include box-shadow(2);
     }
   }
 }
