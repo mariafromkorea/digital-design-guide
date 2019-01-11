@@ -333,6 +333,8 @@
                 <p class="tooltip columns tiny-12"><b>Limitations of Use:</b> This is the default form styling. When is doubt, use this layout ;)</p>
                 <p class="tooltip columns tiny-12"><b>Where this sample falls short:</b> I wasn't sure how to accomplish this, so I'd love some FE Engineer help. You will see when you click on an input field and enter text, once the field is filled in, the text goes from italic to roman. This is easily accomplished with inputs by styling the placeholder text separately from the field text. I'm not sure how to do this with Select boxes, since they only have options. Is there some way to detect when a select option other than the default (empty) option is chosen, so that the same behavior can apply?</p>
 
+                <p class="tooltip columns tiny-12"><b>Default State Colors:</b> Labels are <i><u>dark-gray</u></i>, placeholders are <i><u>medium-gray</u></i>, entered values are <i><u>dark-gray.</u></i><br/><br/><b>Active / Focus State Colors:</b> placholders and values are <i><u>blue</u></i>. Labels stay <i><u>dark-gray</u></i>. See section on disabled form component styles for those colors. </p>
+
               <div class="columns tiny-12">
                 <form class="callout-block" id="form-1">
                    <div class="fc-item columns tiny-6">
@@ -408,6 +410,40 @@
                     </div>
                   </form>
                 </div>
+              </div>
+              <hr/>
+              <div class="row">
+                
+                <div class="columns tiny-12">
+                  <p class="tooltip"><b>Disabled form components:</b> Disabled form components have a <u><i>soft-white</i></u> background-color, labels and placeholder text are <u><i>gray</i></u>. Labels are italicized. </p>
+                <form class="callout-block" id="form-1">
+                   <div class="fc-item columns tiny-6 disabled">
+                    <label>Input Label</label>
+                    <div><input type="text" placeholder="Begin Typing" /></div>
+                  </div>
+                  <div class="fc-item columns tiny-6 disabled">
+                    <label>Input Label</label>
+                    <div><input type="text" placeholder="Begin Typing" /></div>
+                  </div>
+
+                  <div class="fc-item columns tiny-6 disabled">
+                    <label>Select Label</label>
+                      <div><select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select></div>
+                  </div>
+                  <div class="fc-item disabled columns tiny-6">
+                    <label>Select Label</label>
+                      <div><select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select></div>
+                  </div>
+                </form>
+              </div>
               </div>
               <hr/>
               <div class="row">

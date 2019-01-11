@@ -12,6 +12,11 @@ input[type="number"]{
 		@include fc($style:alt);
 		padding-top:7px;
 	}
+
+	.disabled > &,
+	.disabled > div > & {
+		@include fc($active:false);
+	}
 }
 
 select {
@@ -21,6 +26,11 @@ select {
 	&.alt {
 		@include fc(select, $style:alt);
 		padding-top:7px;
+	}
+
+	.disabled > &, 
+	.disabled > div > &{
+		@include fc(select, $active:false);
 	}
 }
 
@@ -103,6 +113,13 @@ form {
 			left:1px;
 			bottom:0;
 			@include label(alt);
+		}
+	}
+
+	&.disabled {
+		label {
+			color:c(gray);
+			font-style:italic;
 		}
 	}
 }
