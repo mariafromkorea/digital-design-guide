@@ -180,3 +180,39 @@
 		}
 	}
 }
+.report-tile {
+	background: c(white);
+	@include box-shadow();
+	border-radius:$global-radius;
+	padding:15px;
+	text-align:center;
+	position:relative;
+
+	&:before,
+	&:after {
+		content:'';
+		position:absolute;
+		width:0;
+		height:0;
+		border-style:solid;
+	}
+
+	&:before {
+		border-width:34px;
+		border-color: c(none);
+		border-bottom-color: c(white-s);
+    top: 0px;
+    left: 0;    
+    transform: rotate(-45deg);
+    top: -37px;
+    left: -37px;
+	}
+	&:after {
+		border-width:30px;
+		border-color: c(none);
+		border-top-color: c(blue);
+		transform: rotate(-45deg);
+    top: 12px;
+    left: 12px;
+	}
+}
