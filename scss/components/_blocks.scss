@@ -216,3 +216,79 @@
     left: 12px;
 	}
 }
+
+#success {
+	width:20px;
+	height:20px;
+	position:relative;
+
+	[id*="c"]{
+		opacity:.0;
+
+		&#c-14 {
+			animation: fade-in .05s ease-in-out 1s forwards;
+ 		}
+ 		&#c-9 {
+			animation: fade-in .05s ease-in-out .05s forwards;
+ 		}
+ 		&#c-18 {
+			animation: fade-in .05s ease-in-out .15s forwards; 
+ 		}
+ 		&#c-8 {
+			animation: fade-in .05s ease-in-out .2s forwards;
+ 		}
+ 		&#c-17 {
+			animation: fade-in .05s ease-in-out .25s forwards;
+ 		} 
+ 		&#c-16 {
+			animation: fade-in .05s ease-in-out .3s forwards;
+ 		} 
+ 		&#c-11 {
+			animation: fade-in .05s ease-in-out .35s forwards;
+ 		}
+ 		&#c-13 {
+			animation: fade-in .05s ease-in-out .4s forwards;
+ 		}
+ 		&#c-6 {
+			animation: fade-in .05s ease-in-out .45s forwards;
+ 		}
+ 		&#c-10 {
+			animation: fade-in .05s ease-in-out .5s forwards;
+ 		}
+ 		&#c-2 {
+			animation: fade-in .05s ease-in-out .55s forwards;
+ 		}
+ 		&#c-15 {
+			animation: fade-in .05s ease-in-out .6s forwards;
+ 		}
+ 		&#c-3 {
+			animation: fade-in .05s ease-in-out .65s forwards;
+ 		}
+ 		&#c-1 {
+			animation: fade-in .05s ease-in-out .7s forwards;
+ 		}
+ 		&#c-5 {
+			animation: fade-in .05s ease-in-out .75s forwards;
+ 		}
+ 		&#c-4 {
+			animation: fade-in .05s ease-in-out .8s forwards;
+ 		}
+ 		&#c-12 {
+			animation: fade-in .05s ease-in-out .85s forwards;
+ 		}
+ 		&#c-7 {
+			animation: fade-in .05s ease-in-out .9s forwards;
+ 		}
+	}
+ #disc {
+ 	opacity:0;
+ 	fill:c(blue);
+ 	animation: fade-in .1s ease-in-out 1s forwards;
+ }
+
+ #check {
+ 	opacity:0;
+ 	fill:c(white);
+ 	animation:fade-in .1s ease-in-out 1.5s forwards;
+ }
+}
