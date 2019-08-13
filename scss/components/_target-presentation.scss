@@ -1,0 +1,157 @@
+// CMYK Animation //
+$duration: 2;
+$delay:13;
+
+$delay:6;
+$ao-delay: $delay + $duration/2;
+$ao-duration: $duration/2;
+$gear-delay:$ao-delay + $ao-duration;
+
+#CMYK {
+	padding:20px 20px 120px 20px;
+	background:c(white);
+}
+.cmyk-container {
+	background:c(white);
+	width:1100px;
+	height:965px;
+	margin:0;
+	position:relative;
+
+	.ao-inner,
+	.ao-outter {
+		position:absolute;
+		margin:auto;
+		top:0px;
+		left:0;
+		right:0;
+		bottom:0;
+		opacity:0;
+		animation: fade-in #{$ao-duration}s ease-in-out #{$ao-delay}s forwards;
+		z-index: +1;
+	}
+
+	.salesforce,
+	.dbx,
+	.gdrive {
+		width:300px;
+		height:300px;
+		border-radius:300px;
+		position:absolute;
+		margin:auto;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+	}
+
+	.salesforce {
+		background:rgba(0, 174, 239, .5) url("../images/logo-salesforce.png") center no-repeat;
+		background-size:auto 50%;
+		bottom:auto;
+		top:175px;
+		animation:animate-salesforce 2s ease-in-out #{$delay}s forwards;
+	}
+
+	.dbx {
+		background:rgba(236, 0, 140, .5) url("../images/logo-dbx.png") center no-repeat;
+		background-size:auto 50%;
+		right:auto;
+		top:auto;
+		bottom:195px;
+		left:225px;
+		animation:animate-dbx #{$duration}s ease-in-out #{$delay}s forwards;
+	}
+
+	.gdrive {
+		background:rgba(255, 242, 0, .5) url("../images/logo-google.png") center no-repeat;
+		background-size:auto 50%;
+		left:auto;
+		top:auto;
+		bottom:195px;
+		right:225px;
+		animation:animate-gdrive #{$duration}s ease-in-out #{$delay}s forwards;
+	}
+
+	.ao-inner {
+		width:300px;
+		height:300px;
+
+		.st1 {
+			fill:c(blue);
+		}
+		.graphic {
+			width:300px;
+			height:300px;
+		}
+	}
+	.ao-outter {
+		width:900px;
+		height:900px;
+		opacity:0;
+
+		.st1 {
+			fill:c(blue);
+		}
+		#outter {
+			width:900px;
+			height:900px;
+			animation: animate-ao-outter 1s #{$gear-delay}s ease-in-out;
+			animation-iteration-count: 1;
+    	animation-play-state: running;
+		}
+	}
+	
+	.workday{
+		background:rgba(35, 31, 32, .5);
+	}
+}
+
+// Fast Track
+.fast-track {
+	width:1500px;
+	height:700px;
+	background:url("../images/graph-fast-track.png") top left no-repeat;
+	background-size: 100% auto;
+	position:relative;
+}
+.fast-car {
+	background:url("../images/ferrari.png") no-repeat;
+	background-size: auto 80%;
+	position:absolute;
+	top: 82px;
+  left: 249px;
+  z-index: +2;
+  // opacity: .3;
+  bottom: 604px;
+  right: 721px;
+  background-position:-900px 42px;
+  animation:fast-car 2s ease-in-out 5s forwards;
+  width:950px;
+  height:314px;
+}
+
+//Arrow
+.arrow {
+	height:24px;
+	position:relative;
+	display:flex;
+	align-items:center;
+}
+#arrow-arm {
+	flex:1 0 auto;
+	height:4px;
+	background:#000;
+	border-radius:20px;
+}
+
+#arrow-head {
+	height:24px;
+	width:14px;
+	margin-left:-10px;
+
+	svg {
+		height:24px;
+		float:left;
+	}
+}
