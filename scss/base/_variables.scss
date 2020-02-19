@@ -53,7 +53,18 @@ $palette: (
 // See functions for Useage
 //
 $zstack: (
-  add-button:+1
+  add-button:+1,
+  perimeter:2,
+  walls:1,
+  people:3,
+  cameras:3,
+  wires:4,
+  cloud-main:5,
+  cloud-main-overlay:6,
+  cloud-animation-bg:7,
+  cloud-animations:8,
+  cloud-left:9, 
+  cloud-right:10
 );
 
 //==================================
