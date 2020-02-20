@@ -1,98 +1,47 @@
 .slide-canvas {
-	width:2500px;
-	height:1407px;
+	width:1480px;
+	height:833px;
 	margin:auto;
 	position:relative;
-	background:url("../images/slide/rsac-template.jpg") top left no-repeat;
+	background:url("../images/slide/rsac-template.jpg") center no-repeat;
 	background-size:100% auto;
+	margin:20px auto;
 }
-
-.perimeter {
-	position:absolute;
-	top:auto;
-	left:18px;
-	right:0;
-	margin:auto;
-	bottom:20px;
-	width:500px;
-	height:95px;
-	background:url("../images/slide/perimeter.svg") center bottom no-repeat;
-	z-index:zi(perimeter);
-}
-
-.walls {
-	position:absolute;
-	top:auto;
-  left: 18px;
-  right: 0;
-  margin: auto;
-  bottom: 19px;
-  width: 498px;
-  height: 645px;
-	background:url("../images/slide/walls.svg") center bottom no-repeat;
-	z-index:zi(walls);
-}
-
-.cameras {
-	position:absolute;
-top: auto;
-    left: 1009px;
-    right: auto;
-    margin: auto;
-    bottom: 325px;
-    width: 500px;
-    height: 600px;
-	background:url("../images/slide/cameras.svg") center bottom no-repeat;
-	z-index:zi(cameras);
-}
-
-// .camera-right {
-// 	position:absolute;
-//   top: auto;
-//   left: 1406px;
-//   right: auto;
-//   margin: auto;
-//   bottom: 398px;
-//   width: 66px;
-//   height: 72px;
-// 	background:url("../images/slide/sec-cam-right.svg") center bottom no-repeat;
-// 	z-index:zi(cameras);
-// }
 
 .people {
-	width: 280px;
+	width: 168px;
   height: auto;
   left: 24px;
   right: 0;
   margin: auto;
   top: auto;
-  bottom: 49px;
+  bottom: 20px;
   position: absolute;
   z-index:zi(people);
-  height: 343px;
+  height: 205px;
   background: url(../images/slide/people.svg) center top no-repeat;
-  background-size: 282px auto;
+  background-size: 168px auto;
 }
 
 .wires-wrapper {
 	z-index: zi(wires);
   position: absolute;
-  width: 263px;
-  height: 335px;
-  left: 1123px;
-  top: 876px;
+  width: 157px;
+  height: 98px;
+  left: 669px;
+    top: 528px;
   opacity:0;
 }
 
 .wires {
-  width: 263px;
-  height: 335px;
+  width: 157px;
+  height: 98px;
   background-size: 100% auto;
   background: url(../images/slide/wires.svg) center top no-repeat; 
 }
 
 .cloud-main {
-	width:1500px;
+	width:892px;
 	height:auto;
 	left:0;
 	right:0;
@@ -106,7 +55,7 @@ top: auto;
 }
 
 .cloud-main-2 {
-	width:1500px;
+	width:892px;
 	height:auto;
 	left:0;
 	right:0;
@@ -121,44 +70,46 @@ top: auto;
 }
 
 .things {
-  width: 1085px;
-  height: 668px;
+  width: 675px;
+    height: 400px;
   position: absolute;
   background: url(../images/slide/things.svg) center no-repeat;
   
 }
 .things-wrapper {
 	z-index: zi(cloud-animation-bg);
-  width: 1085px;
-  height: 668px;
+  width: 675px;
+    height: 400px;
   position: absolute;
-  left: 650px;
-  top: 185px;
+      left: 370px;
+    top: 107px;
   opacity:0;
  }
 
 .spinner-1 {
   background: url(../images/slide/spinner-1.svg) center no-repeat;
-  width: 193px;
-  height: 196px;
-  background-size: auto 100%;
-  opacity:.75;
+      width: 120px;
+    height: 121px;
+    background-size: auto 100%;
+    opacity: .75;
+    transform: rotate(180deg);
 }
 
 .spinner-1-wrapper {
   z-index: zi(cloud-animations);
-  position: absolute;
- left: 1032px;	
-  top: 518px;
-  width: 196px;
-  height: 196px;
-  opacity:0; 
+ position: absolute;
+    left: 608px;
+    top: 306px;
+    width: 121px;
+    height: 121px;
+    opacity: 0;
+    
 }
 
 .spinner-2 {
   background: url(../images/slide/spinner-2.svg) right center no-repeat;
-  width: 236px;
-  height: 236px;
+      width: 142px;
+    height: 142px;;
   background-size: auto 73%;  
   opacity:.4;
 }
@@ -166,49 +117,49 @@ top: auto;
 .spinner-2-wrapper {
 	  z-index: zi(cloud-animations);
     position: absolute;
-    left: 1009px;
-    top: 497px;
-    width: 236px;
-    height: 236px;
+    left: 598px;
+    top: 296px;
+    width: 142px;
+    height: 142px;
     opacity:.4;
     
 }
 .click {
     background: url(../images/slide/click-1.svg) center no-repeat;
-    width: 84px;
-    height: 84px;
+    width: 50px;
+    height: 50px;
     
 }
 .click-wrapper {
 	z-index: zi(cloud-animations);
   position: absolute;
-  top: 240px;
-  left: 1152px;
-  width: 84px;
-  height: 84px;
+  top: 134px;
+    left: 683px;
+    width: 50px;
+    height: 50px;
 }
 
 .border {
   background: url(../images/slide/border-1.svg) center no-repeat;
-  width: 166px;
+  width: 100px;
   height: 100px;
 }
 
 .border-wrapper {
 	z-index: zi(cloud-animations);
   position: absolute;
-  top: 517px;
-  left: 1447px;
-  width: 166px;
-  height: 100px;
+  top: 287px;
+    left: 866px;
+    width: 100px;
+    height: 100px;
 }
 
 .cloud-left {
 	z-index:zi(cloud-left);
 	position:absolute;
-	width:868px;
-	left:460px;
-	top:437px;
+	width: 575px;
+    left: 242px;
+    top: 242px;
 
 	#Cloud---BottomLeft {
 		fill:#E1F6FF;
@@ -217,21 +168,21 @@ top: auto;
 	.qmarks {
 		position:absolute;
 		margin:auto;
-		left:0;
-		right:22px;
-		width:220px;
-		height:220px;
-		background:url("../images/slide/qmarks-left.svg") center no-repeat;
-		top:145px;
+		    left: 0;
+    right: 22px;
+    width: 100px;
+    height: 140px;
+    background: url(../images/slide/qmarks-left.svg) center no-repeat;
+    top: 98px;
 	}
 }
 
 .cloud-right {
 	z-index:zi(cloud-right);
 	position:absolute;
-	width:1169px;
-	left:920px;
-	top:50px;
+	width: 700px;
+    left: 550px;
+    top: 30px;
 	
 	#Cloud---TopRight {
 		fill:#BDE0EF;
@@ -241,11 +192,11 @@ top: auto;
 		position:absolute;
 		margin:auto;
 		left:0;
-		right:22px;
-		width:250px;
-		height:250px;
-		background:url("../images/slide/qmarks-right.svg") center no-repeat;
-		top:255px;
+		    right: 22px;
+    width: 150px;
+    height: 150px;
+    background: url(../images/slide/qmarks-right.svg) center no-repeat;
+    top: 142px;
 	}
 }
 .animation-1 {
@@ -355,19 +306,19 @@ top: auto;
 }
 @keyframes cloud-left {
 	0% {
-		left:460px;
+		left:242px;
 	}
 	100% {
-		left: -140px;
+		left: -162px;
 	}
 
 }
 @keyframes cloud-right {
 	0% {
-		left:920px;
+		left:550px;
 	}
 	100% {
-		left:1800px;
+		left:1080px;
 	}
 }
 @keyframes cloud-main {
